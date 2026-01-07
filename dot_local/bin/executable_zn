@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+NOTES_DIR="$HOME/Writes/Notes"
+INDEX="$NOTES_DIR/index.md"
+
+if [[ -f "$INDEX" ]]; then
+  exec nvim "$INDEX"
+else
+  exec nvim +"Telekasten panel" "$NOTES_DIR"
+fi
+
