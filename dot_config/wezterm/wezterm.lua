@@ -9,12 +9,13 @@ local config = wezterm.config_builder()
 config = {
   default_prog = {"/usr/bin/fish", "-l"},
   automatically_reload_config = true,
-  enable_wayland = false,
+  enable_wayland = true,
   -- enable_tab_bar = false,
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
   tab_max_width = 64,
-  window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+  -- window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+  window_decorations = "NONE",
   -- default_cursor_style = "BlinkingBar",
   initial_cols = 120,
   initial_rows = 28,
@@ -44,13 +45,13 @@ config = {
   background = {
     {
       source = {
-        File = wezterm.home_dir .. "/.config/wezterm/backdrops/5-cm.jpg",
+        File = wezterm.home_dir .. "/.config/wezterm/backdrops/nord-space.png",
       },
       hsb = {
         hue = 1.0,
         saturation = 1.00,
-        brightness = 0.25,
-        -- brightness = 0.05,
+        -- brightness = 0.25,
+        brightness = 0.05,
       },
       -- attachment = { Parallax = 0.3 },
       -- width = "100%",
@@ -69,12 +70,12 @@ config = {
   },
 }
 -- Add datetime to the right side of the tab bar
-wezterm.on("update-right-status", function(window, pane)
-  local date = wezterm.strftime("%a, %b %d %I:%M%P")
-  window:set_right_status(wezterm.format({
-    { Text = " " .. date .. " " },
-  }))
-end)
+-- wezterm.on("update-right-status", function(window, pane)
+--   local date = wezterm.strftime("%a, %b %d %I:%M%P")
+--   window:set_right_status(wezterm.format({
+--     { Text = " " .. date .. " " },
+--   }))
+-- end)
 -- config.colors = require("cyberdream")
 -- Finally, return the configuration to wezterm:
 return config
