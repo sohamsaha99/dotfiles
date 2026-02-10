@@ -24,6 +24,16 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+# Set default editor
+if command -v nvim >/dev/null 2>&1; then
+    export EDITOR=nvim
+elif command -v vim >/dev/null 2>&1; then
+    export EDITOR=vim
+else
+    export EDITOR=nano
+fi
+
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
+# zoxide: fuzzy alternative of cd
 eval "$(zoxide init bash)"
